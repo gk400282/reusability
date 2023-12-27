@@ -13,10 +13,14 @@ function NavigationProvider({children}) {
         window.addEventListener('popstate', handler);
 
         return () => window.removeEventListener('popstate', handler);
-    });
+    }, []);
+
+    const navigate = (to) => {
+        window.history.pushState({}, '', to);
+        setCurrentPath(to);
+    };
     
-    return <NavigationContext.Provider value={{}}>
-        {currentPath}
+    return <NavigationContext.Provider value={{currentPath, navigate}}>
         {children}
     </NavigationContext.Provider>
 }
