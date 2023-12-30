@@ -3,28 +3,32 @@ import DropdownPage from './pages/DropdownPage';
 import AccordianPage from './pages/AccordianPage';
 import ButtonPage from './pages/ButtonPage';
 import Router from './components/Router';
-import Link from './components/Link';
+import Sidebar from './components/Sidebar';
+import ModalPage from './pages/ModalPage';
 
 function App() {
+  const links = [
+    { label: "Dropdown", path: "/dropdown" },
+    { label: "Accordian", path: "/accordian" },
+    { label: "Buttons", path: "/buttons" },
+    { label: "Model", path: "/modal" },
+  ];
   return (
     <>
-      <div>
-        <Link to="/accordian">Go to AccordianPage</Link>
-        <Link to="/dropdown">Go to DropdownPage</Link>
-        <Link to="/buttons">Go to ButtonPage</Link>
-        <div>
+      <div className="container mx-auto grid grid-cols-6 gap-4 mt-4">
+        <Sidebar links={links}/>
+        <div className='col-span-5'>
           <Router path="/accordian">
             <AccordianPage />
           </Router>
-        </div>
-        <div>
           <Router path="/dropdown">
             <DropdownPage />
           </Router>
-        </div>
-        <div>
           <Router path="/buttons">
             <ButtonPage />
+          </Router>
+          <Router path="/modal">
+            <ModalPage />
           </Router>
         </div>
       </div>
