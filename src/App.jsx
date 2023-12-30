@@ -5,6 +5,7 @@ import ButtonPage from './pages/ButtonPage';
 import Router from './components/Router';
 import Sidebar from './components/Sidebar';
 import ModalPage from './pages/ModalPage';
+import TablePage from './pages/TablePage';
 
 function App() {
   const links = [
@@ -12,6 +13,7 @@ function App() {
     { label: "Accordian", path: "/accordian" },
     { label: "Buttons", path: "/buttons" },
     { label: "Model", path: "/modal" },
+    { label: "Table", path: "/table" },
   ];
   return (
     <>
@@ -29,6 +31,9 @@ function App() {
           </Router>
           <Router path="/modal">
             <ModalPage />
+          </Router>
+          <Router path="/table">
+            <TablePage />
           </Router>
         </div>
       </div>
